@@ -14,7 +14,7 @@ This project demonstrates a real-world data pipeline built entirely using Azure 
 
 ## Architecture Diagram
 
-![architecture](./architecture-diagram.png)
+![image](https://github.com/user-attachments/assets/4ae430b8-3b3d-4e5d-8a69-1fb66491bca2)
 
 ---
 
