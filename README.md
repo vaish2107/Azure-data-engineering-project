@@ -1,67 +1,112 @@
-# Azure Data Engineering End-to-End Project
+# 🚀 Azure Data Engineering End-to-End Project
 
-## Overview
+## 🧭 Overview
 
 This project demonstrates a real-world data pipeline built entirely using Azure tools:
 
-- **Data Ingestion**: Azure Data Factory
-- **Storage**: Azure Data Lake Gen2
-- **Transformation**: Azure Databricks (PySpark)
-- **Serving**: Azure Synapse Analytics
-- **Visualization**: Power BI
+- **Data Ingestion**: Azure Data Factory  
+- **Storage**: Azure Data Lake Gen2  
+- **Transformation**: Azure Databricks (PySpark)  
+- **Serving**: Azure Synapse Analytics  
+- **Visualization**: Power BI  
 
 ---
 
-## Architecture Diagram
+## 🗺️ Architecture Diagram
 
-![image](https://github.com/user-attachments/assets/4ae430b8-3b3d-4e5d-8a69-1fb66491bca2)
-
----
-
-## Services Used
-
-| Service              | Purpose                         |
-|----------------------|---------------------------------|
-| Azure Data Factory   | Ingest data from external source |
-| Azure Data Lake Gen2 | Store raw, transformed data     |
-| Azure Databricks     | Transform with PySpark          |
-| Azure Synapse        | Query and serve                 |
-| Power BI             | Visualize data                  |
+![Architecture Diagram](./assets/architecture-diagram.png)
 
 ---
 
-## Data Flow
+## 🔄 End-to-End Workflow
 
-1. Data from HTTP API ingested to **bronze layer** (ADF)
-2. Cleaned/enriched in Databricks and saved to **silver**
-3. Aggregated and loaded into **gold layer**
-4. Registered in Synapse for querying
-5. Visualized in Power BI
+1. **Data Ingestion**  
+   - Azure Data Factory ingests data from HTTP sources  
+   - Raw data lands in the **bronze** zone of Azure Data Lake Gen2
 
----
+2. **Data Transformation**  
+   - Databricks notebooks clean, enrich, and transform data from bronze to **silver**
+   - Aggregated and analytics-ready data written to the **gold** layer
 
-## Hands-on Work Included
+3. **Data Serving**  
+   - Synapse Analytics reads the gold layer for analysis using SQL scripts
 
-- Created & triggered ADF pipelines
-- Designed lake layers (`bronze/silver/gold`)
-- Wrote PySpark transformations in notebooks
-- Configured Synapse workspace and ran SQL
-- Connected Power BI to Synapse for live reports
+4. **Data Visualization**  
+   - Power BI is connected to Synapse for building reports and dashboards
 
 ---
 
-## Screenshots
+## 💾 Storage Layer Structure
 
-| ADF Pipeline | Data Lake | Databricks | Synapse |
-|--------------|-----------|------------|---------|
-| ![ADF](./assets/adf-pipeline.png) | ![DL](./assets/lake.png) | ![DB](./assets/databricks.png) | ![Synapse](./assets/synapse.png) |
+| Layer  | Description                        |
+|--------|------------------------------------|
+| Bronze | Raw ingested files (no changes)   |
+| Silver | Cleaned and structured data       |
+| Gold   | Aggregated and business-ready     |
 
 ---
 
-## Skills Demonstrated
+## 📒 Notebooks and Scripts
 
-- Azure resource provisioning
-- Cloud-scale ETL/ELT using PySpark
-- Data lake architecture (Bronze/Silver/Gold)
-- Azure RBAC & Key-based access
-- Data reporting using Power BI
+| Component       | File |
+|-----------------|------|
+| Silver Layer Notebook | [silver_layer.ipynb](./assets/silver_layer.ipynb) |
+| Gold Layer SQL Views  | [Create Views gold.sql](./assets/Create%20Views%20gold.sql) |
+
+---
+
+## 🖼️ Screenshots
+
+| Component           | Preview |
+|---------------------|---------|
+| **ADF Pipeline**    | ![ADF](./assets/ADF-Pipeline.png) |
+| **Bronze Layer**    | ![Bronze](./assets/Bronze.png) |
+| **Silver Layer**    | ![Silver](./assets/Silver.png) |
+| **Gold Layer**      | ![Gold](./assets/Gold.png) |
+
+---
+
+## 💼 Why This Project Matters
+
+This project is not just a demo — it reflects my **hands-on experience designing, deploying, and operating real-world data pipelines** using modern Azure tools. I implemented everything from ingestion to transformation and reporting myself.
+
+### Key Responsibilities I Handled:
+- Provisioned and configured Azure services (ADF, Storage, Databricks, Synapse)
+- Designed a multi-layer **lakehouse architecture** (`bronze`, `silver`, `gold`)
+- Built end-to-end ingestion and transformation pipelines using **PySpark**
+- Set up secure access using **OAuth** and **service principal** authentication
+- Registered transformed data for querying via **Synapse Analytics**
+- Created data views and ran analytical SQL for reporting
+- Visualized outcomes with **Power BI**, simulating real stakeholder dashboards
+
+This project proves I can:
+- Work independently across the Azure data stack
+- Build scalable, production-ready solutions
+- Automate data processing with a focus on clarity, governance, and efficiency
+
+---
+
+## 🧪 Tech Stack in Action
+
+| Tool                  | My Implementation Example                                                  |
+|-----------------------|----------------------------------------------------------------------------|
+| **Azure Data Factory** | Ingested JSON via REST API into bronze layer                              |
+| **Azure Data Lake Gen2** | Structured as bronze/silver/gold for scalable data management           |
+| **Databricks (PySpark)** | Wrote custom transformation logic, used OAuth2 for secure data access   |
+| **Synapse Analytics** | Registered gold data, created views and analytical queries                 |
+| **Power BI**          | Connected Synapse to Power BI to build final report                        |
+| **GitHub**            | Used for version control and documentation                                 |
+
+---
+
+## 📎 How to Reuse This Project
+
+1. Clone this repo  
+2. Update linked services in ADF to your sources  
+3. Recreate storage containers: `bronze/`, `silver/`, `gold/`  
+4. Upload notebooks to Databricks  
+5. Update Power BI connections with your Synapse endpoint
+
+---
+
+> Feel free to fork this repo and adapt it to your own data sources or business use case!
